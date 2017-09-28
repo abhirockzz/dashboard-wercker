@@ -44,7 +44,7 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojknockout', 'ojs/ojrouter'],
                 self.smScreen = oj.ResponsiveKnockoutUtils.createMediaQueryObservable(smQuery);
                 // Header
                 // Application Name used in Branding Area
-                self.appName = ko.observable("Datacenter Monitoring Application");
+                self.appName = ko.observable("Datacenter Monitoring App");
                 // User Info used in Global Navigation area
                 self.userLogin = ko.observable("john.doe");
 
