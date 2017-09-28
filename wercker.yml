@@ -1,24 +1,18 @@
-# Docker Hub image for Maven
-box: maven
-# This is the build pipeline. 
+box: combient/java-mvn
 build:
-  # The steps that will be executed on build
   steps:
-    # A custom script step, name value is used in the UI
-    # and the code value contains the command that get executed
+    # Build application
     - script:
-        name: echo Maven version
-        code: |
-          echo "Maven version $(mvn version) running"
-        name: Run Maven build
-        code: |
-          mvn clean install
-push-to-hub:
+        name: Maven install
+        code: mvn install
+deploy-accs:
   steps:
-    - internal/docker-push:
-        username: $USERNAME
-        password: $PASSWORD
-        repository: abhirockzz/worked-up
-        registry: https://registry.hub.docker.com
-        ports: "8080"
-        cmd: java -jar /pipeline/source/target/redis-cdi.jar
+    # Push to public docker repo
+    - peternagy/oracle-accs-deploy:
+        opc_user: $OPC_USERNAME
+        opc_password: $OPC_PASSWORD
+        rest_url: $REST_URL
+        domain: $IDENTITY_DOMAIN
+        application_name: dashboard
+        application_type: javaee
+        file: dashboard.war
