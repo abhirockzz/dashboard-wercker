@@ -7,7 +7,6 @@ build:
         code: mvn install
 deploy-accs:
   steps:
-    # Push to public docker repo
     - peternagy/oracle-accs-deploy:
         opc_user: $OPC_USERNAME
         opc_password: $OPC_PASSWORD
