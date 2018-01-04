@@ -4,6 +4,7 @@
  */
 
 define(['ojs/ojcore', 'knockout', 'ojs/ojknockout', 'ojs/ojrouter'],
+       //testupdate
         function (oj, ko) {
             var router = oj.Router.rootInstance;
             oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
